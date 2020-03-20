@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main page</title>
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<!-- <script th:src="@{js/custom.js}"></script> -->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        alert("JQuery works");
+        $('.showForm2').on('click', () =>{
+        	$('.hidden').toggle('slow');
+        });
+    });
+    
+   
+    
+</script>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row heading">Welcome to my main page:)</div>
+		<div class="row mainContent">
+		<nav class="navbar navbar-inverse">
+		<a class="navbar-brand" th:href="@{/}">Logo</a>
+		<ul class="navbar navbar-nav">
+		<li class="showForm"><a th:href="@{/login}">Login</a></li>
+		<li class="showForm22"><a th:href="@{/}">Login</a></li>
+		<li></li>
+		</ul>
+		<button class="showForm2">Submit</button>
+		</nav>
+			<!-- <div class="col-lg-6 contentItem">
+				<span th:text="${book.title != null} ? ${book.title}"></span> <br>
+				<span th:text="${book.image != null} ? ${book.image}"></span> <br>
+
+			</div>
+			<div class="col-lg-6 contentItem">
+				<h1>WITAJ MLODY PADAWANIE</h1>
+				<form th:action="@{/process}" th:object="${book}" method="post">
+					<p class="error" th:if="${#fields.hasErrors('title')}">Title
+						error</p>
+					Title <input type="text" placeholder="Enter book title"
+						th:field="*{title}" /> 
+						<br>
+					Author <input type="text" placeholder="Enter author" th:field="*{author}" />	 
+					<br>
+					Description <input type="text" placeholder="Enter description" th:field="*{description}"/>
+					<br>
+					File <input type="file"
+						th:field="*{image}" />
+					<br>
+					<button type="submit" class="btn-btn-primary">Submit</button>
+				</form>
+			</div> -->
+		</div>
+		<div class="row image">
+			<div class="col-lg-12 image">
+			<table>
+				<tr th:each="singleBook : ${book}">
+				<div class="col-lg-3">
+					Title: <p th:text="${singleBook.title}"></p>
+					Author: <p th:text="${singleBook.author}"></p>
+					Description: <p th:text="${singleBook.description}"></p>
+					<hr>
+					<img height="200" weight="200" th:src="@{'/images/' + ${singleBook.image}}" />
+				</div>
+				</tr>
+			</table>
+			</div>
+		</div>
+		<div class="hidden">
+			<h1 style="color: blue;">THIS IS FUCKING HIDDEN TEXT</h1>
+		</div>
+	
+	</div>
+
+</body>
+	
+	
+</html>

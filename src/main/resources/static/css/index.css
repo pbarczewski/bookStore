@@ -1,0 +1,154 @@
+.main {
+	border: 1px solid red;
+	height: 100vh;
+}
+
+
+
+/* ICONS  */
+.fa-book-reader {
+	color: #f9f6f2;
+	font-size: 30px;
+}
+
+/* NAVBAR */
+
+.nav-left {
+	margin-top: 5px;
+	background-color: #420000;
+}
+
+.nav-itemLeft {
+	width: 90px;
+	text-align: center;
+}
+.nav-linkRight {
+	color: #ffffff;
+}
+
+.nav-itemLogIn {
+	margin: 5px 30px 0px 0px;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	border: 3px solid #420000;
+	color: black;
+	vertical-align: middle;
+	padding: 3px;
+}
+
+.nav-itemLogIn:hover {
+	color: #ffffff;
+	background-color: #420000;
+	border: 3px solid #420000;
+	text-decoration: none;
+}
+
+.nav-itemRegister {
+	margin: 5px 30px 0px 0px;
+	width: 90px;
+	height: 40px;
+	text-align: center;
+	border: 3px solid #420000;
+	color: #ffffff;
+	vertical-align: middle;
+	padding: 3px;
+	background-color: #420000;
+}
+
+.nav-itemRegister:hover {
+	color: #202120;
+	text-decoration: none;
+}
+
+.nav-linkRight {
+	color: #ffffff;
+}
+
+.nav-linkRight:hover {
+	color: #202120;
+	text-decoration: none;
+}
+
+.nav-linkLeft {
+	color: #d62f3d;
+}
+
+/* END NAVBAR */
+
+/* MAIN */
+.authorLink {
+	color: #272727;
+}
+
+.authorLink:hover {
+	text-decoration: none;
+}
+
+.bookAuthor {
+	padding-bottom: 15px;
+}
+
+.main {
+	justify-content: center;
+}
+
+.book {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  	transition: 0.3s;
+	margin-top: 20px;
+	margin-right: 20px;
+	height: 320px;
+}
+
+.book-img {
+	width: 150px;
+	overflow: hidden;
+}
+
+.book-img img {
+	box-shadow: 5px 5px 5px grey;
+	margin-top: 20px;
+	transition: all 0.5s ease-in-out;
+	filter: sepia(1);
+	height: 200px;
+	width: 150px;
+}
+
+.book-img:hover img {
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+	filter: none;
+}
+
+.bookTitle {
+	font-size: 20px;
+	color: #420000;
+	font-weight: bold;
+}
+
+.bookTitle a:link {
+	font-size: 20px;
+	color: #420000;
+	font-weight: bold;
+}
+
+.bookTitle a:hover {
+	text-decoration: none;
+	color: #632222;
+}
+
+h1 {
+	color: #420000;
+	weight: bold;
+}
+
+/* END MAIN */
+
+
+/* PAGINATION */
+
+
+
+

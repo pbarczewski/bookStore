@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Authors</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+<link th:href="@{/css/category.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+	<div class="container-fluid">
+
+		<header>
+			<div class="row nav">
+				<div class="col-lg-10 mainNavbar">
+					<nav class="navbar navbar-expand nav-left">
+						<a class="navbar-brand" th:href="@{/}"> <i
+							class="fas fa-book-reader"></i></a>
+						<ul class="navbar-nav">
+							<li class="nav-itemLeft"><a class="nav-linkRight"
+								th:href="@{/books}">Books <i class="fas fa-book"></i>
+							</a></li>
+							<li class="nav-itemLeft"><a class="nav-linkRight"
+								th:href="@{/authors}">Authors <i class="fas fa-portrait"></i>
+							</a></li>
+							<li class="nav-itemLeft"><a class="nav-linkRight" href="#">Top
+									<i class="fas fa-battery-full"></i>
+							</a></li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="col-lg-2 mainNavbar">
+					<nav class="navbar navbar-expand nav-right">
+						<ul class="navbar-nav ml-auto">
+							<a th:href="@{/login}" class="nav-itemLogIn" role="button">
+								Log in</a>
+							<a th:href="@{/result}" class="nav-itemRegister" role="button">
+								Register</a>
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+		</header>
+
+		<main>
+			<div class="container categoryTitle p-3 my-4 text-center">
+				<h1 th:inline="text"><strong>Kategoria:</strong>
+				[[${category.getName()}]]
+				</h1>
+			</div>
+			
+			<div class="row main">
+			
+			<div class="container mt-2" 
+			th:each="singleBook : ${books}">
+			<div class="row">
+			<div class="col-lg-2 bookImg text-center">
+			<a th:href="@{/books/{id}/{title} 
+			(id=${singleBook.getId()}, title=${singleBook.getTitle()}) }">
+			<img class="img-fluid" th:src="@{'/images/' + ${singleBook.getImages()}}"/> </a>
+			</div>
+			<div class="col-lg-8 bookInfo">
+			<a class="link" th:href="@{/books/{id}/{title} 
+			(id=${singleBook.getId()}, title=${singleBook.getTitle()}) }">
+			<h1 th:text="${singleBook.getTitle()}"></h1></a>
+			<span th:inline="text"> <strong>Data wydania: </strong>
+			[[${singleBook.getRelease_date()}]]
+			</span>
+			<br/>
+			<span th:inline="text"> <strong>Ranking: </strong>
+			Placeholder
+			</span>
+			<br/>
+			<a th:href="@{/books/{id}/{title} 
+			(id=${singleBook.getId()}, title=${singleBook.getTitle()}) }">
+			<button class="btn btn-info mt-2">More info
+			</button></a>
+			</div>
+			
+			
+			<div class="col-lg-2 bookRating text-center">
+			<h1>Rating</h1>
+			
+			</div>
+			
+			
+			</div>
+			<hr>
+			</div>
+			
+			
+
+			</div>
+
+			<div class="container my-3 pag">
+
+			
+
+			</div>
+		</main>
+
+
+
+
+
+
+
+
+
+	</div>
+</body>
+
+
+</html>

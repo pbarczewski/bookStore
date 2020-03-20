@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Main page</title>
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<h1>CZESC</h1>
+<p th:text="${book.title}">
+<img width="1000" th:src="@{'/images/' + '97.jpg'}" />
+<p th:text="${book.image}"/>
+<a th:href="@{/}">Click me!</a>
+</body>
+
+
+</html>
