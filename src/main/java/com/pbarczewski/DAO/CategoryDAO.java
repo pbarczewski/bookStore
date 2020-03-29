@@ -31,13 +31,7 @@ public interface CategoryDAO extends JpaRepository<Category, Integer> {
 		
 	}
 	
-	default List<Book> findBooksWithinCategory(Category category, Pageable pageable) {
-		
-		
-		return category.getBooks();
-		
-		
-	}
+	List<Book> findAllById(int id);
 	
 
 }

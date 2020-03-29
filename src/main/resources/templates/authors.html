@@ -65,7 +65,7 @@
 					<div class="col-lg-12 h-100 card px-0 ">
 						<a
 							th:href="@{authors/{id}/{name}(id=${singleAuthor.getId()}, name=${singleAuthor.getName()})}">
-							<img class='img-fluid w-100 h-100' alt="singleAuthor.getImages()"
+							<img class='img-fluid' alt="singleAuthor.getImages()"
 							th:src="@{'/images/authors/' + ${singleAuthor.getImages()}}" />
 						</a>
 					</div>
@@ -82,15 +82,13 @@
 
 			</div>
 
-			<div class="container my-3 pag">
-
+			<div class="col-lg-12">
 				<ul class="pagination">
 					<li class="page-item"
-						th:each="i : ${#numbers.sequence(0,authors.totalPages-1)}"><a
+						th:each="i : ${#numbers.sequence(0, authors.totalPages-1)}"><a
 						th:href="@{/authors/(page=${i})}" th:text="${i}" class="page-link"
 						th:classappend="${currentPage}==${i}? 'active' : ''"></a></li>
 				</ul>
-
 			</div>
 		</main>
 		<hr>

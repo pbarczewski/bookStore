@@ -48,21 +48,18 @@ public class MainController {
 		return "hello";
 	}
 	
-	@GetMapping("/books/{category}")
+	@GetMapping("/books/category/{category}")
 	public String booksByCategory(Model model,
-			@PathVariable String category, @RequestParam(defaultValue="0") int page
-			) {
+			@PathVariable String category, @RequestParam(defaultValue="0") int page) {
 		
 		Category specificCategory = categoryDAO.findSpecificCategory(category);
 		
+		System.out.println(booksDAO.findAllByCategory(specificCategory, null));
 		
-		
+		model.addAttribute("books", booksDAO.findAllByCategory(specificCategory, PageRequest.of(page, 2)));
 		model.addAttribute("category", 
 				specificCategory);
-		model.addAttribute("books", categoryDAO.
-				findBooksWithinCategory(specificCategory, PageRequest.of(page, 1)));
-		
-		
+		model.addAttribute("currentPage", page);
 		
 		return "testowo2";
 	}
@@ -74,9 +71,7 @@ public class MainController {
 		if(author != null) {
 			book.addAuthor(author);
 			authorDAO.save(author);
-		}
-		System.out.println(book.getAuthors().size());
-			
+		}	
 		return "testowo";
 	}
 	

@@ -1,4 +1,4 @@
-package com.pbarczewski.entity;
+package com.pbarczewski.DAO;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,30 +8,31 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import com.pbarczewski.DAO.BooksDAO;
+import com.pbarczewski.entity.Book;
+import com.pbarczewski.entity.Category;
 
-public class Dupa implements BooksDAO {
+public class dsdasada implements CategoryDAO {
 
 	@Override
-	public List<Book> findAll() {
+	public List<Category> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Book> findAll(Sort sort) {
+	public List<Category> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Book> findAllById(Iterable<Integer> ids) {
+	public List<Category> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Category> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -43,13 +44,13 @@ public class Dupa implements BooksDAO {
 	}
 
 	@Override
-	public <S extends Book> S saveAndFlush(S entity) {
+	public <S extends Category> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteInBatch(Iterable<Book> entities) {
+	public void deleteInBatch(Iterable<Category> entities) {
 		// TODO Auto-generated method stub
 
 	}
@@ -61,37 +62,37 @@ public class Dupa implements BooksDAO {
 	}
 
 	@Override
-	public Book getOne(Integer id) {
+	public Category getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> List<S> findAll(Example<S> example) {
+	public <S extends Category> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Category> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Book> findAll(Pageable pageable) {
+	public Page<Category> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> S save(S entity) {
+	public <S extends Category> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Book> findById(Integer id) {
+	public Optional<Category> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -115,13 +116,13 @@ public class Dupa implements BooksDAO {
 	}
 
 	@Override
-	public void delete(Book entity) {
+	public void delete(Category entity) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Book> entities) {
+	public void deleteAll(Iterable<? extends Category> entities) {
 		// TODO Auto-generated method stub
 
 	}
@@ -133,27 +134,33 @@ public class Dupa implements BooksDAO {
 	}
 
 	@Override
-	public <S extends Book> Optional<S> findOne(Example<S> example) {
+	public <S extends Category> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Category> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Book> long count(Example<S> example) {
+	public <S extends Category> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Book> boolean exists(Example<S> example) {
+	public <S extends Category> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Book> findAllById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

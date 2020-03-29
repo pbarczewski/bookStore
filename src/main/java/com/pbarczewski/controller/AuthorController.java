@@ -31,7 +31,7 @@ public class AuthorController {
 		if(authorDAO.findAll()  == null) {
 			System.out.println("TRZEBA WYMYSLIC KOMUNIKAT");
 		}
-		model.addAttribute("authors", authorDAO.findAll(PageRequest.of(page, 10)));
+		model.addAttribute("authors", authorDAO.findAll(PageRequest.of(page, 4)));
 		model.addAttribute("currentPage", page);
 		
 		return "authors";
