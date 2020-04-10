@@ -22,12 +22,7 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>nl.geodienstencentrum.maven</groupId>
-			<artifactId>sass-maven-plugin</artifactId>
-			<version>3.7.2</version>
-		</dependency>
-
+	
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>

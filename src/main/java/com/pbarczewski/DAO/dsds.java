@@ -11,28 +11,28 @@ import org.springframework.data.domain.Sort;
 import com.pbarczewski.entity.Book;
 import com.pbarczewski.entity.Category;
 
-public class dsdasada implements CategoryDAO {
+public class dsds implements BooksDAO {
 
 	@Override
-	public List<Category> findAll() {
+	public List<Book> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Category> findAll(Sort sort) {
+	public List<Book> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Category> findAllById(Iterable<Integer> ids) {
+	public List<Book> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Book> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -44,13 +44,13 @@ public class dsdasada implements CategoryDAO {
 	}
 
 	@Override
-	public <S extends Category> S saveAndFlush(S entity) {
+	public <S extends Book> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteInBatch(Iterable<Category> entities) {
+	public void deleteInBatch(Iterable<Book> entities) {
 		// TODO Auto-generated method stub
 
 	}
@@ -62,37 +62,37 @@ public class dsdasada implements CategoryDAO {
 	}
 
 	@Override
-	public Category getOne(Integer id) {
+	public Book getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> List<S> findAll(Example<S> example) {
+	public <S extends Book> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Book> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Category> findAll(Pageable pageable) {
+	public Page<Book> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> S save(S entity) {
+	public <S extends Book> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Category> findById(Integer id) {
+	public Optional<Book> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -116,13 +116,13 @@ public class dsdasada implements CategoryDAO {
 	}
 
 	@Override
-	public void delete(Category entity) {
+	public void delete(Book entity) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Category> entities) {
+	public void deleteAll(Iterable<? extends Book> entities) {
 		// TODO Auto-generated method stub
 
 	}
@@ -134,31 +134,31 @@ public class dsdasada implements CategoryDAO {
 	}
 
 	@Override
-	public <S extends Category> Optional<S> findOne(Example<S> example) {
+	public <S extends Book> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Book> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Category> long count(Example<S> example) {
+	public <S extends Book> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Category> boolean exists(Example<S> example) {
+	public <S extends Book> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<Book> findAllById(int id) {
+	public Page<Book> findAllByCategory(Category category, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}

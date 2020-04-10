@@ -1,6 +1,7 @@
 package com.pbarczewski.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,13 +12,16 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pbarczewski.BookRepositoryApplication;
 import com.pbarczewski.DAO.AuthorDAO;
 import com.pbarczewski.DAO.BooksDAO;
 import com.pbarczewski.DAO.CategoryDAO;
+import com.pbarczewski.DAO.Testowo;
 import com.pbarczewski.entity.Author;
 import com.pbarczewski.entity.Book;
 import com.pbarczewski.entity.Category;
@@ -37,13 +41,11 @@ public class MainController {
 		this.categoryDAO = categoryDAO;
 	}
 	
-
-	
 	@GetMapping("/books")
 	public String allBooks(Model model,@RequestParam(defaultValue="0") int page) {
 		
 		model.addAttribute("books", 
-				booksDAO.findAll(PageRequest.of(page, 6)));
+				booksDAO.findAll(PageRequest.of(page, 16)));
 		model.addAttribute("currentPage", page);
 		return "hello";
 	}
@@ -54,15 +56,28 @@ public class MainController {
 		
 		Category specificCategory = categoryDAO.findSpecificCategory(category);
 		
-		System.out.println(booksDAO.findAllByCategory(specificCategory, null));
 		
-		model.addAttribute("books", booksDAO.findAllByCategory(specificCategory, PageRequest.of(page, 2)));
+		model.addAttribute("books", categoryDAO.findAllByCategory(specificCategory, PageRequest.of(page, 3)));
 		model.addAttribute("category", 
 				specificCategory);
 		model.addAttribute("currentPage", page);
 		
-		return "testowo2";
+		return "newOne";
 	}
+	
+	
+	  @PostMapping("/vote") 
+	  public String vote(@ModelAttribute("singleBook") Book book) {
+	  
+	  System.out.println("Zagłosowane"); 
+	  System.out.println(book.getTitle());
+	  System.out.println(book.getId());
+	  System.out.println(book.getCategory().getName());
+	  //return "redirect:/books/category/{category}";
+	  return "dupa";
+	  }
+	 
+	
 	
 	@GetMapping("/test")
 	public String save() {

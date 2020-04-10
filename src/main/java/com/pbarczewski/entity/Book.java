@@ -57,6 +57,12 @@ public class Book {
 			)
 	private List<Author> authors = new ArrayList<>();
 	
+	@Column(name="rating")
+	private Double rating;
+	
+	@Column(name="votes")
+	private Integer votes;
+	
 	public Book() {
 		
 	}
@@ -102,7 +108,6 @@ public class Book {
 		this.authors = authors;
 	}
 
-
 	public String getImages() {
 		return images;
 	}
@@ -126,9 +131,22 @@ public class Book {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
-	
-	
-	
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public Integer getVotes() {
+		return votes;
+	}
+
+	public void setVotes(Integer votes) {
+		this.votes = votes;
+	}
+
 	
 }

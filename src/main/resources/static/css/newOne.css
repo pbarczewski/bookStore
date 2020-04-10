@@ -1,17 +1,24 @@
-body {
-	position: relative;
-	margin: 0;
-	padding-bottom: 6rem;
-	min-height: 100%;
+.container {
+	background-color: #f9f7f7;
 }
 
-.link {
-	color:white;
+.categoryTitle h1 {
+	font-size: 25px;
+	margin-top: 50px;
+	margin-left: 17px;
+	margin-bottom: 15px;
+	color: #112d4e;	
+	width: 15%;
+	border-bottom: 1px solid #112d4e;
+}
+
+.test {
+	width:50px;
 }
 
 .link:hover {
 	text-decoration: none;
-	color: white;
+	color: #112d4e;
 	opacity: 0.7;
 }
 
@@ -99,106 +106,63 @@ body {
 
 
 .bookImg {
-	height: 20vh;
-	overflow: hidden;
+	height: 30vh;
+	position: relative;
 }
 
-.bookImg img {
+.bookImg .link1 {
+	height: 30vh;
+	border: 1px solid blue;
+	display: block;
+	opacity: 1;
+	position: absolute;
+	width: 87%;
+	top: 0px;
+	opacity:0;
+	background-color: #cca8e9;
+}
+.bookImg .link1:hover {
+	opacity: 0.6;
+}
+
+img {
 	height: 100%;
 	transition: all 0.5s ease-in-out;
-}
-
-.bookImg:hover img {
-	-webkit-transform: scale(1.2) rotate(-5deg);
-	-ms-transform: scale(1.2) rotate(-5deg);
-	transform: scale(1.2) rotate(-5deg);
+	left: 0px;
+	top: 0px;
+	position: relative;
+	width: 100%;
+	display:block;
 }
 
 
 .bookInfo {
-	background-color: #1b262c;
-	color: white;
+	color: #112d4e;
+	margin=: 0px;
+	padding: 0px;
 }
 
-
-.authorCard {
-	margin-top: 10px;
-	height: 90vh;
+.bookInfo h2 {
+	color: #112d4e;	
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 3px;
+	font-size: 20px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	display: block; 
 }
-
-.authorName {
-	background-color: #940a37;
-	color: white;
-	height: 15vh;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	text-transform: uppercase;
-}
-
-.authorDetails {
-	background-color: #eae9e9;
-	color: #420000;
-	height: 8vh;
-	display:flex;
-	align-items:center;
-}
-
-.authorFollowers {
-	background-color: #015668;
-	color: white;
-	height: 8vh;
-	display:flex;
-	align-items:center;
-	margin-right: 15px;
-	justify-content:center;
-}
-
-.authorFollow {
-	background-color: #621055;
-	color: white;
-	height: 8vh;
-	display:flex;
-	align-items:center;
-	margin-right: 15px;
-	justify-content:center;
-}
-
-.authorBooksNumber {
-	background-color: #10316b;
-	color: white;
-	height: 8vh;
-	display:flex;
-	align-items:center;
-	margin-right: 15px;
-	justify-content:center;
-}
-
-
-.authorImage {
-	height: 50.5vh;
-}
-
-.authorNumbers {
-	justify-content:center;
-}
-
-.popularBook {
-	background-color: #3e64ff;
-	color: white;
-	height: 300px;
-}
-
-.popularBook img {
-	padding-bottom: 20px;
-	height: 80%;
-}
-
-.description {
-	height: 35vh;
-	background-color: #eae9e9;
-	color: #420000;
-	overflow-y:scroll; overflow-x:hidden; 
+.bookInfo h3 {
+	color: #112d4e;	
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 3px;
+	font-size: 17px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	display: block; 
 }
 
 
