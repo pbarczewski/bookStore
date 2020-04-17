@@ -1,13 +1,11 @@
+/* ESSENTIAL */
 .container {
 	background-color: #f9f7f7;
+	font-family: 'Roboto', sans-serif;
+	height: 100vh;
+	padding: 0px;
 }
-
-
-.bookInfo link {
-	overflow:hidden;
-	white-space: nowrap;
-	text-overflow:ellipsis;
-}
+/* END ESSENTIAL */
 
 .link:hover {
 	text-decoration: none;
@@ -21,13 +19,22 @@
 	font-size: 30px;
 }
 
+.fa-heart {
+	font-size: 50px;
+	color: white;
+}
+/* END ICONS */
+
 /* NAVBAR */
+
 .nav-left {
 	background-color: #112d4e;
 	opacity: 0.9;
-	background-image: linear-gradient(#112d4e 95%, #f9f7f7 );
+	background-image: linear-gradient(#112d4e 95%, #f9f7f7);
 	text-transform: uppercase;
 	height: 60px;
+	letter-spacing: 2px;
+	font-weight: 300;
 }
 
 .nav-item {
@@ -35,10 +42,11 @@
 	text-align: center;
 	height: 60px;
 	display: flex;
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
+
 .nav-item:hover {
 	background-color: #dbe2ef;
 	text-align: center;
@@ -47,15 +55,14 @@
 .nav-item a {
 	color: #f9f7f7;
 	text-decoration: none;
-	
 }
+
 .nav-item:hover a {
 	background-color: #dbe2ef;
 	text-align: center;
 	color: #000000;
 	text-decoration: none;
 }
-
 
 .nav-itemLogIn {
 	margin: 5px 30px 0px 0px;
@@ -97,12 +104,21 @@
 /* MAIN */
 
 .main {
-	margin-top:10vh;
+	height: 80vh;
+	margin-top: 8vh;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .bookImg {
 	height: 30vh;
 	position: relative;
+}
+
+.bookInfo link {
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
 }
 
 .bookImg .link1 {
@@ -130,7 +146,6 @@ img {
 	display:block;
 }
 
-
 .bookInfo {
 	color: #112d4e;
 	margin-bottom: 15px;
@@ -154,69 +169,33 @@ img {
 	padding-bottom: 3px;
 	font-size: 17px;
 }
-
-
-
 /* END MAIN */
 
-
-/* ICONS */
-
-.fa-heart {
-	font-size: 50px;
-	color: white;
-}
-
-
 /* FOOTER */
-
-footer {
-	position: absolute;
-	right: 15px;
-	bottom: 10px;
-	left: 15px;
-	background-color: #420000;
-	height: 40px;
+.footer {
+   position: fixed;
+   bottom: 0;
+   background-color: #112d4e;
+   color: white;
+   display: flex;
+   align-items: center;
+   height: 4vh;
+   justify-content: center;
+   font-weight: 100;
 }
 
-.rightFooter {
-	margin-top: 5px;
-	color: white;
-	height: 40px;
-}
-
-.social-icons {
-	text-align: center;
-	font-size: 30px;
-	color: white;
-	margin-right: 20px;
-	margin-top: 5px;
+.footer i:hover {
 	cursor: pointer;
 }
 
-.social-icons:first-child {
-	margin-left: 15px;
+.footer a {
+	color: white;
 }
 
-.social-icons:hover {
-	animation: shake 0.5s;
-	animation-iteration-count: infinite;
+.footer a:hover {
+	font-size: 10px;
+	
 }
-
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
 
 /* END FOOTER */
 

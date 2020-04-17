@@ -47,7 +47,7 @@ public class MainController {
 		model.addAttribute("books", 
 				booksDAO.findAll(PageRequest.of(page, 16)));
 		model.addAttribute("currentPage", page);
-		return "hello";
+		return "books";
 	}
 	
 	@GetMapping("/books/category/{category}")
@@ -55,7 +55,6 @@ public class MainController {
 			@PathVariable String category, @RequestParam(defaultValue="0") int page) {
 		
 		Category specificCategory = categoryDAO.findSpecificCategory(category);
-		
 		
 		model.addAttribute("books", categoryDAO.findAllByCategory(specificCategory, PageRequest.of(page, 3)));
 		model.addAttribute("category", 
@@ -68,13 +67,10 @@ public class MainController {
 	
 	  @PostMapping("/vote") 
 	  public String vote(@ModelAttribute("singleBook") Book book) {
-	  
-	  System.out.println("Zagłosowane"); 
-	  System.out.println(book.getTitle());
-	  System.out.println(book.getId());
-	  System.out.println(book.getCategory().getName());
-	  //return "redirect:/books/category/{category}";
-	  return "dupa";
+		  
+		  System.out.println(book.getRating());
+		  
+	  return "redirect:/books/" + book.getId() + "/" + book.getTitle();
 	  }
 	 
 	
