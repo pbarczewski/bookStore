@@ -27,15 +27,19 @@ mvn spring-boot:run
 type: localhost:8080 on your browser
 
 ## Status
-As it was mentioned working on the project is in progress. It is an alpha version, most of the features are disabled, or not working.   
-The project is still developed
+As it was mentioned working on the project is in progress, and it is still developed. It is an alpha version, most of the features are disabled, or not working. Some of tabs are lead nowhere, there are also many placeholders which are going to be replaced with normal content
+
+### What is already done
+- [x] The page is filled with some content
+- [x] Working "Books" and "Authors" tab.
+- [x] Reviewing single Books and single Authors is enable as well.
 
 ### What will be done next
-[ ] "Category" tab, searching by category
-[ ] Working "Top" tab
-[ ] More content, more books, authors and categories
-[ ] Page layout improvements
-[ ] User registration with authorized login and password
+- [ ] "Category" tab, searching by category
+- [ ] Working "Top" tab
+- [ ] More content, more books, authors and categories
+- [ ] Page layout improvements
+- [ ] User registration with authorized login and password
 
 
 
