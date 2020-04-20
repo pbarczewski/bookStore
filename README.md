@@ -1,10 +1,10 @@
 # bookStore1
 
 ## Table of contents
-*[General info](#general-info)
-*[Technologies](#technologies)
-*[Setup](#Setup)
-*[Status](#Status)
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#Setup)
+* [Status](#Status)
 
 
 ## General info
