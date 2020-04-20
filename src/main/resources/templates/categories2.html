@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html>
 <head>
-<title>Title</title>
+<title th:text="Books"></title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-	crossorigin="anonymous">
-<link th:href="@{/css/index.css}" rel="stylesheet" />
+	crossorigin="anonymous" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-<link
-	href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap"
-	rel="stylesheet" />
+<link th:href="@{/css/books2.css}" rel="stylesheet" />
+<script src="js/custom1.js"></script>
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/custom.js"></script>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
 	;
 </style>
+
 </head>
 
 <body>
@@ -51,55 +48,49 @@
 			</div>
 		</header>
 
-
 		<main>
+			<div class="col-lg-4 categoryTitle">
+				<h1 th:inline="text">[[${category.name}]]</h1>
+			</div>
+
 			<div class="row main">
-				<div class="col-lg-2 test" th:each="singleBook, iterStat : ${books}">
+				<div class="col-lg-2" th:each="singleBook, iterStat : ${books}">
 
 					<div class="col-lg-12 bookImg">
 						<a href="#"><img
-							th:src="@{'/images/' + ${singleBook.getImages()}}" /></a> <a
-							class="link1"
-							th:href="@{/books/{id}/{title} (id=${singleBook.getId()}, title=${singleBook.getTitle()}) }"></a>
+							th:src="@{'/images/' + ${singleBook.images}}" /></a> <a
+							class="imageLink"
+							th:href="@{/books/{id}/{title} (id=${singleBook.id}, title=${singleBook.title}) }"></a>
 					</div>
 					<article>
 						<div class="col-lg-12 bookInfo">
 							<a class="link"
-								th:href="@{/books/{id}/{title} (id=${singleBook.getId()}, title=${singleBook.getTitle()}) }">
+								th:href="@{/books/{id}/{title} (id=${singleBook.id}, title=${singleBook.title}) }">
 								<span th:inline="text">
 									<h2>
-										<strong>[[${singleBook.getTitle()}]]</strong>
+										<strong>[[${singleBook.title}]]</strong>
 									</h2>
-							</a> <a class="link"
-								th:href="@{/authors/{id}/{name} (id=${singleBook.getAuthors()[0].id}, name=${singleBook.getAuthors()[0].name}) }">
-								<h3 th:inline="text"
-									th:if="${#arrays.length(singleBook.getAuthors()) <= 1}">[[${singleBook.getAuthors()[0].name}]]</h3>
 							</a>
-							<h3 th:inline="text"
-								th:if="${#arrays.length(singleBook.getAuthors()) >= 2}">Many
-								authors</h3>
+							<h3 th:each="author, iterStat : ${singleBook.authors}">
+								<a class="link"
+									th:href="@{/authors/{id}/{name} (id=${author.id}, name=${author.name}) }">
+									<span th:if="${iterStat.index < 2}"
+									th:text="${author.name}"></span>
+								</a> <span th:if="${iterStat.index > 1}" th:text="many authors"></span>
+							</h3>
 							<strong> <i class="fas fa-star"></i>
-								[[${singleBook.getRating()}]]/10
-							</strong> | <i class="fas fa-book-open"></i> Readers:
-							[[${singleBook.getVotes()}]]
+								[[${singleBook.rating}]]/10 </strong> | Readers: [[${singleBook.votes}]]
 						</div>
-
 					</article>
 
 				</div>
 				<hr>
 			</div>
-			<div class="col-lg-12">
-				<ul class="pagination">
-					<li class="page-item"
-						th:each="i : ${#numbers.sequence(0,books.totalPages-1)}"><a
-						th:href="@{/books/(page=${i})}" th:text="${i}" class="page-link"
-						th:classappend="${currentPage}==${i}? 'active' : ''"></a></li>
-				</ul>
-			</div>
-
-		</main>
-
+			</main>
+	
+	
+	
+	
 		<footer>
 			<div class="col-lg-10 footer">
 				<a th:href="@{https://www.facebook.com/patryk.barczewski.5}"><i

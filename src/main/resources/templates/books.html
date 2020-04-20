@@ -55,29 +55,30 @@
 					<div class="col-lg-12 bookImg">
 						<a href="#"><img
 							th:src="@{'/images/' + ${singleBook.getImages()}}" /></a> <a
-							class="link1"
+							class="imageLink"
 							th:href="@{/books/{id}/{title} (id=${singleBook.getId()}, title=${singleBook.getTitle()}) }"></a>
 					</div>
 					<article>
 						<div class="col-lg-12 bookInfo">
 							<a class="link"
 								th:href="@{/books/{id}/{title} (id=${singleBook.getId()}, title=${singleBook.getTitle()}) }">
-								<span th:inline="text">
-									<h2>
-										<strong>[[${singleBook.getTitle()}]]</strong>
-									</h2>
+								<h1>
+									<span th:inline="text"> <strong>[[${singleBook.getTitle()}]]</strong></span>
+								</h1>
 							</a> <a class="link"
 								th:href="@{/authors/{id}/{name} (id=${singleBook.getAuthors()[0].id}, name=${singleBook.getAuthors()[0].name}) }">
-								<h3 th:inline="text"
-									th:if="${#arrays.length(singleBook.getAuthors()) <= 1}">[[${singleBook.getAuthors()[0].name}]]</h3>
+								<h2 th:inline="text"
+									th:if="${#arrays.length(singleBook.getAuthors()) <= 1}">[[${singleBook.getAuthors()[0].name}]]</h2>
 							</a>
-							<h3 th:inline="text"
+							<h2 th:inline="text"
 								th:if="${#arrays.length(singleBook.getAuthors()) >= 2}">Many
-								authors</h3>
-							<strong> <i class="fas fa-star"></i>
-								[[${singleBook.getRating()}]]/10
-							</strong> | <i class="fas fa-book-open"></i> Readers:
-							[[${singleBook.getVotes()}]]
+								authors</h2>
+							<p class="rating">
+								<strong> <i class="fas fa-star"></i>
+									[[${singleBook.getRating()}]]/10
+								</strong> | <i class="fas fa-book-open"></i> Readers:
+								[[${singleBook.getVotes()}]]
+							</p>
 						</div>
 
 					</article>
@@ -87,23 +88,36 @@
 			</div>
 			<div class="col-lg-12">
 				<ul class="pagination">
+					<li class="page-item"><a class="page-link"
+						th:if="${currentPage} > 0"
+						th:href="@{/books/(page=${currentPage -1})}" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+					</a></li>
 					<li class="page-item"
 						th:each="i : ${#numbers.sequence(0,books.totalPages-1)}"><a
-						th:href="@{/books/(page=${i})}" th:text="${i}" class="page-link"
+						class="page-link" th:href="@{/books/(page=${i})}" th:text="${i}"
 						th:classappend="${currentPage}==${i}? 'active' : ''"></a></li>
+		
+					<li class="page-item"><a class="page-link"
+						th:if="${currentPage} < ${books.totalPages} -1"
+						th:href="@{/books/(page=${currentPage +1})}" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+					</a></li>
 				</ul>
 			</div>
-
 		</main>
-		
-		
+
+
 		<footer>
 			<div class="col-lg-10 footer">
-				<a th:href="@{https://www.facebook.com/patryk.barczewski.5}"><i class="fab fa-facebook-f"></i></a> 
-				<a th:href="@{http://www.instagram.com/patryk_barczewski5}"><i class="fab fa-instagram"></i></a>
-				&copy; Patryk Barczewski 
-				<a th:href="@{https://www.linkedin.com/in/patryk-barczewski-57b7a7144/}"><i class="fab fa-linkedin-in"></i></a> 
-				<a th:href="@{https://github.com/pbarczewski}"><i class="fab fa-github"></i></a>
+				<a th:href="@{https://www.facebook.com/patryk.barczewski.5}"><i
+					class="fab fa-facebook-f"></i></a> <a
+					th:href="@{http://www.instagram.com/patryk_barczewski5}"><i
+					class="fab fa-instagram"></i></a> &copy; Patryk Barczewski <a
+					th:href="@{https://www.linkedin.com/in/patryk-barczewski-57b7a7144/}"><i
+					class="fab fa-linkedin-in"></i></a> <a
+					th:href="@{https://github.com/pbarczewski}"><i
+					class="fab fa-github"></i></a>
 			</div>
 		</footer>
 	</div>

@@ -60,8 +60,7 @@ public class MainController {
 		model.addAttribute("category", 
 				specificCategory);
 		model.addAttribute("currentPage", page);
-		
-		return "newOne";
+		return "categories2";
 	}
 	
 	

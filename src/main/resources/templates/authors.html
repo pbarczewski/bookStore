@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html>
 <head>
-<title>Authors</title>
+<title th:text="Books"></title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-	crossorigin="anonymous">
-<link th:href="@{/css/authors.css}" rel="stylesheet" />
+	crossorigin="anonymous" />
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link th:href="@{/css/authors.css}" rel="stylesheet" />
+<script src="js/custom1.js"></script>
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+	;
+</style>
+
 </head>
 
 <body>
-
 	<div class="container col-lg-10">
-
 		<header>
 			<div class="row nav">
 				<div class="col-lg-10 mainNavbar">
@@ -44,8 +48,6 @@
 			</div>
 		</header>
 
-
-
 		<main>
 
 
@@ -58,7 +60,7 @@
 							th:href="@{/authors/{id}/{name} (id=${singleAuthor.id}, name=${singleAuthor.name}) }"></a>
 					</div>
 					<div class="col-lg-12 authorInfo">
-						<a class="link1"
+						<a class="link"
 							th:href="@{/authors/{id}/{name} (id=${singleAuthor.id}, name=${singleAuthor.name}) }">
 							<span th:inline="text">
 								<h2>
@@ -66,35 +68,43 @@
 								</h2>
 						</a> <i class="fas fa-heart"></i> Followers | <i
 							class="fas fa-book-open"></i> Readers
-
-
-
 					</div>
-
 				</div>
-
 			</div>
 
 			<div class="col-lg-12">
 				<ul class="pagination">
+					<li class="page-item"><a class="page-link"
+						th:if="${currentPage} > 0"
+						th:href="@{/books/(page=${currentPage -1})}" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+					</a></li>
 					<li class="page-item"
-						th:each="i : ${#numbers.sequence(0, authors.totalPages-1)}"><a
-						th:href="@{/authors/(page=${i})}" th:text="${i}" class="page-link"
+						th:each="i : ${#numbers.sequence(0,authors.totalPages-1)}"><a
+						class="page-link" th:href="@{/authors/(page=${i})}" th:text="${i}"
 						th:classappend="${currentPage}==${i}? 'active' : ''"></a></li>
+
+					<li class="page-item"><a class="page-link"
+						th:if="${currentPage} < ${authors.totalPages} -1"
+						th:href="@{/books/(page=${currentPage +1})}" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+					</a></li>
 				</ul>
 			</div>
 		</main>
-	</div>
 
-	<footer>
-		<div class="container col-lg-10 footer">
-			<i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i>
-			&copy; Patryk Barczewski <i class="fab fa-linkedin-in"></i> <i
-				class="fab fa-github"></i>
-		</div>
-	</footer>
+		<footer>
+			<div class="col-lg-10 footer">
+				<a th:href="@{https://www.facebook.com/patryk.barczewski.5}"><i
+					class="fab fa-facebook-f"></i></a> <a
+					th:href="@{http://www.instagram.com/patryk_barczewski5}"><i
+					class="fab fa-instagram"></i></a> &copy; Patryk Barczewski <a
+					th:href="@{https://www.linkedin.com/in/patryk-barczewski-57b7a7144/}"><i
+					class="fab fa-linkedin-in"></i></a> <a
+					th:href="@{https://github.com/pbarczewski}"><i
+					class="fab fa-github"></i></a>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>
-
-
-
