@@ -49,7 +49,7 @@
 	position: relative;
 }
 
-.bookImg .link1 {
+.bookImg .imageLink {
 	height: 30vh;
 	border: 1px solid blue;
 	display: block;
@@ -59,15 +59,15 @@
 	top: 0px;
 	opacity:0;
 	background-color: #cca8e9;
+	transition: all 0.5s ease-in-out;
 }
 
-.bookImg .link1:hover {
+.bookImg .imageLink:hover {
 	opacity: 0.6;
 }
 
 img {
 	height: 100%;
-	transition: all 0.5s ease-in-out;
 	left: 0px;
 	top: 0px;
 	position: relative;
@@ -75,7 +75,7 @@ img {
 	display:block;
 }
 
-.authorInfo {
+.bookInfo {
 	color: #112d4e;
 	margin-bottom: 15px;
 	padding: 0px;
@@ -83,31 +83,35 @@ img {
 	width: 88%;
 }
 
-.authorInfo h2 {
-	color: #112d4e;	
-	margin: 0px;
-	padding-bottom: 3px;
-	font-size: 20px;
-	overflow:hidden;
-	white-space: nowrap;
-	text-overflow:ellipsis;
-	display: block; 
-}
-
-.authorInfo .link {
+.bookInfo .link {
 	text-decoration: none;
 }
-.authorInfo .link:hover {
+.bookInfo .link:hover {
 	opacity: 0.6;
 }
 
-.pagination {
-	justify-content: center;
+.bookInfo h1 {
+	color: #112d4e;	
+	margin: 0px;
+	font-size: 20px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: block; 
+	font-weight: 700;
+}
+
+.bookInfo h2 {
+	color: #112d4e;	
+	margin: 0px;
+	padding-bottom: 3px;
+	font-size: 17px;
+	font-weight: 300;
 }
 
 .sectionTitle h1 {
 	font-size: 25px;
-	margin-top: 25px;
+	margin-top: 2.6vh;
 	color: #112d4e;	
 	border-bottom: 1px solid #112d4e;
 	margin-left: 3.5vh;
@@ -116,16 +120,22 @@ img {
 	width: 49.3vh;
 }
 
-.item a:link {
-	font-size: 22px;
-	color: #eae9e9;
-	font-weight: bold;
+.selectCategory {
+	margin-top: 1.9vh;
+	margin-left: 2.1vh;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #112d4e;	
 }
 
-.item a:hover {
-	text-decoration: none;
-	color: #632222;
+.rating {
+	font-weight: 400;
 }
+
+.pagination {
+	justify-content: center;
+}
+
 
 /* END MAIN */
 

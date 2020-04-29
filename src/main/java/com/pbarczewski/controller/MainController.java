@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +32,11 @@ public class MainController {
 
 	
 	private BooksDAO booksDAO;
-	private AuthorDAO authorDAO;
 	private CategoryDAO categoryDAO;
 	
 	@Autowired
-	public MainController(BooksDAO booksDAO, AuthorDAO authorDAO, CategoryDAO categoryDAO) {
+	public MainController(BooksDAO booksDAO, CategoryDAO categoryDAO) {
 		this.booksDAO = booksDAO;
-		this.authorDAO = authorDAO;
 		this.categoryDAO = categoryDAO;
 	}
 	
@@ -50,19 +49,39 @@ public class MainController {
 		return "books";
 	}
 	
-	@GetMapping("/books/category/{category}")
+	@GetMapping("/top")
+	public String topBooks(Model model,@RequestParam(defaultValue="0") int page) {
+		
+		model.addAttribute("books", 
+				booksDAO.findAll(PageRequest.of(page, 16, Sort.by(Sort.Direction.ASC, "rating"))));
+		model.addAttribute("currentPage", page);
+		return "topBooks";
+	}
+	
+	@GetMapping("/categories/{category}")
 	public String booksByCategory(Model model,
 			@PathVariable String category, @RequestParam(defaultValue="0") int page) {
 		
-		Category specificCategory = categoryDAO.findSpecificCategory(category);
+		Category selectedCategory = categoryDAO.findSpecificCategory(category);
+		List<Category> allCategories = categoryDAO.findAll();
 		
-		model.addAttribute("books", categoryDAO.findAllByCategory(specificCategory, PageRequest.of(page, 3)));
-		model.addAttribute("category", 
-				specificCategory);
+		model.addAttribute("books", categoryDAO.findAllByCategory(selectedCategory, PageRequest.of(page, 3)));
+		model.addAttribute("selectedCategory", selectedCategory);
 		model.addAttribute("currentPage", page);
-		return "categories2";
+		model.addAttribute("category", allCategories);
+		return "category";
 	}
 	
+	@GetMapping("/categories")
+	public String allCategories(Model model,@RequestParam(defaultValue="0") int page) {
+		
+		List<Category> categories = categoryDAO.findAll();
+		model.addAttribute("books", 
+				booksDAO.findAll(PageRequest.of(page, 16)));
+		model.addAttribute("category", categories);
+		model.addAttribute("currentPage", page);
+		return "categories";
+	}
 	
 	  @PostMapping("/vote") 
 	  public String vote(@ModelAttribute("singleBook") Book book) {
@@ -72,33 +91,6 @@ public class MainController {
 	  return "redirect:/books/" + book.getId() + "/" + book.getTitle();
 	  }
 	 
-	
-	
-	@GetMapping("/test")
-	public String save() {
-		Author author = authorDAO.getOne(1);
-		Book book = booksDAO.getOne(11);
-		if(author != null) {
-			book.addAuthor(author);
-			authorDAO.save(author);
-		}	
-		return "testowo";
-	}
-	
-	@GetMapping("/test2")
-	public String save2() {
-		//Category category = new Category("literatura piękna");
-		Category category = categoryDAO.getOne(1);
-		Book book = booksDAO.getOne(11);
-		if(category != null) {
-			category.addBook(book);
-			categoryDAO.save(category);
-		}
-		System.out.println(category.getBooks().size());
-			
-		return "testowo";
-	}
-	
 	
 	@GetMapping("/books/{id}/{title}")
 	public String singleBook(Model model, @PathVariable int id, @PathVariable String title) {

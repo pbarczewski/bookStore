@@ -48,7 +48,7 @@ public class AuthorController {
 		if(author == null) {
 			System.out.println("TRZEBA WYMYSLIC KOMUNIKAT");
 		}
-		model.addAttribute("singleAuthor", author);
+		model.addAttribute("author", author);
 		
 		return "singleAuthor";
 		

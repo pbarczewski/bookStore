@@ -2,7 +2,7 @@
 .container {
 	background-color: #f9f7f7;
 	font-family: 'Roboto', sans-serif;
-	height: 100vh;
+	height: 110vh;
 	padding: 0px;
 }
 /* END ESSENTIAL */
@@ -98,7 +98,7 @@ img {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	display: block; 
-	font-weight: 400;
+	font-weight: 700;
 }
 
 .bookInfo h2 {
@@ -109,20 +109,23 @@ img {
 	font-weight: 300;
 }
 
-.categoryTitle h1 {
-	font-size: 25px;
-	margin-top: 50px;
-	color: #112d4e;	
-	border-bottom: 1px solid #112d4e;
-	margin-left: 1.5vh;
-}
-
 .rating {
 	font-weight: 400;
 }
 
 .pagination {
 	justify-content: center;
+}
+
+.sectionTitle h1 {
+	font-size: 25px;
+	margin-top: 2.6vh;
+	color: #112d4e;	
+	border-bottom: 1px solid #112d4e;
+	margin-left: 3.5vh;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	width: 49.3vh;
 }
 
 

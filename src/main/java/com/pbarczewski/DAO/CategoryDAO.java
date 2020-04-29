@@ -18,19 +18,19 @@ public interface CategoryDAO extends JpaRepository<Category, Integer> {
 	
 	default Category findSpecificCategory(String category) {
 		
-		Category specificCategory = null;
+		Category selectedCategory = null;
 		
 		for(Category singleCategory : this.findAll()) {
 			if(singleCategory.getName().contains(category)) {
-				specificCategory = singleCategory;
+				selectedCategory = singleCategory;
 			}
 		}
 		
-		if(specificCategory ==null) {
+		if(selectedCategory ==null) {
 			System.out.println("Wymyślić stronę błędu pozniej");
 		}
 		
-		return specificCategory;
+		return selectedCategory;
 		
 	}
 	
@@ -41,8 +41,6 @@ public interface CategoryDAO extends JpaRepository<Category, Integer> {
 		int start = (int) pageable.getOffset();
 		int end = (start + pageable.getPageSize()) > booksInCategory.size() ? booksInCategory.size() : (start + pageable.getPageSize());
 		Page<Book> pages = new PageImpl<Book>(booksInCategory.subList(start, end), pageable, booksInCategory.size());
-		
-	//	Page books = new PageImpl<Book>(booksInCategory, pageable, booksInCategory.size());
 		
 		return pages;
 		

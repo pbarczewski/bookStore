@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title th:text="${book.getTitle()}"></title>
+<title th:inline="text">[[${book.title}]]</title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
@@ -34,8 +34,8 @@
 						<ul class="navbar-nav">
 							<li class="nav-item"><a th:href="@{/books}">Books</a></li>
 							<li class="nav-item"><a th:href="@{/authors}">Authors </a></li>
-							<li class="nav-item"><a href="#">Top</a></li>
-							<li class="nav-item"><a href="">Categories</a></li>
+							<li class="nav-item"><a th:href="@{/top}">Top</a></li>
+							<li class="nav-item"><a th:href="@{/categories/}">Categories</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -65,13 +65,13 @@
 								onChange="javascript:document.forms['change'].submit()">
 								<ul>
 									1 |
-									<li th:each="i : ${#numbers.sequence(1,10)}"><input
-										th:id="${i}" th:value="${i}" th:field="*{rating}" type="radio" />
+									<li th:each="i : ${#numbers.sequence(1,10)}">
+									<input th:id="${i}" th:value="${i}" th:field="*{rating}" type="radio" />
 										<label th:for="${i}"></label></li> | 10
 								</ul>
 
-								<input type="hidden" th:field="*{id}"> <input
-									type="hidden" th:field="*{title}">
+								<input type="hidden" th:field="*{id}"> 
+								<input type="hidden" th:field="*{title}">
 							</form>
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 
 								<h3 th:inline="text">
 									Category: <a class="link"
-										th:href="@{/books/category/{category} (category=${book.getCategory().name})}">
+										th:href="@{/categories/{category} (category=${book.getCategory().name})}">
 										[[${book.category.name}]] 
 								</h3>
 								</a>
