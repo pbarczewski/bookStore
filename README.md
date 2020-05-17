@@ -8,8 +8,8 @@
 
 
 ## General info
-It is a alpha version of bookstore site. 
-A content of the site can be review with any well-known browsers, but it was tested with Mozilla Firefox chiefly.  
+It is an alpha version of a bookstore site. 
+Content of the site can be reviewed with any well-known browsers, but it was tested with Mozilla Firefox chiefly.  
 
 ## Technologies
 Project is created with:
