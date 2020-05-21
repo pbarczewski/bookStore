@@ -19,23 +19,19 @@ public interface CategoryDAO extends JpaRepository<Category, Integer> {
 	default Category findSpecificCategory(String category) {
 		
 		Category selectedCategory = null;
+		List<Category> allCategories = this.findAll();
 		
-		for(Category singleCategory : this.findAll()) {
+		for(Category singleCategory : allCategories) {
 			if(singleCategory.getName().contains(category)) {
 				selectedCategory = singleCategory;
 			}
 		}
-		
-		if(selectedCategory ==null) {
-			System.out.println("Wymyślić stronę błędu pozniej");
-		}
-		
 		return selectedCategory;
 		
 	}
 	
-	@SuppressWarnings("deprecation")
-	default public Page<Book> findAllByCategory(Category category, Pageable pageable) {
+	
+	default Page<Book> findAllByCategory(Category category, Pageable pageable) {
 		
 		List<Book> booksInCategory = category.getBooks();
 		int start = (int) pageable.getOffset();

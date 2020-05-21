@@ -1,64 +1,76 @@
-/* ESSENTIAL */
-.container {
-	background-color: #f9f7f7;
+.container-fluid {
+	height: 100vh;
 	font-family: 'Roboto', sans-serif;
-	height: 110vh;
+}
+
+.bar {
+	height: 1vh;
+	background-color: #112d4e;
+}
+
+.logo {
+	height: 25vh;
 	padding: 0px;
-}
-/* END ESSENTIAL */
-
-/* ICONS */
-.fa-book-reader {
-	color: #f9f6f2;
-	font-size: 30px;
-}
-
-.fa-facebook-f {
-	margin-right: 30px;
-	font-size: 20px;
+	margin: auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-transform: uppercase;
+	background-image: url("../images/other/dot-grid.png");
 }
 
-.fa-instagram {
-	margin-right: 30px;
-	font-size: 20px;
+.logo img {
+	height: 20vh;
 }
 
-.fa-linkedin-in {
-	margin-left: 30px;
-	font-size: 20px;
+.navbar {
+	height: 5vh;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 300;
+}
+.right {
+	height: 5vh;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+ 	justify-content: right;
+ 	margin-bottom: 2vh;
+}
+.nav-link {
+	color: #112d4e;
 }
 
-.fa-github {
-	margin-left: 30px;
-	font-size: 20px;
+.content {
+	height: 105vh;
+	background-color: #f6f6f6;
 }
 
-/* END ICONS */
-
-/* MAIN */
-
-.main {
-	height: 80vh;
-	margin-top: 2vh;
-	margin-left: auto;
-	margin-right: auto;
+.title {
+	margin: auto;
+	text-align: center;
+	font-size: 5vh;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	border-bottom: 1px solid #112d4e;
+	font-weight: 700;
+	padding: 3vh;
+	padding-bottom: 1vh;
 }
 
 .bookImg {
-	height: 30vh;
+	margin-top: 2vh;
+	height: 35vh;
 	position: relative;
 }
 
 .bookImg .imageLink {
-	height: 30vh;
-	border: 1px solid blue;
+	height: 35vh;
 	display: block;
-	opacity: 1;
 	position: absolute;
-	width: 87%;
+	width: 90%;
 	top: 0px;
 	opacity:0;
-	background-color: #cca8e9;
+	background-color: #f9f7f7;
 	transition: all 0.5s ease-in-out;
 }
 
@@ -66,13 +78,14 @@
 	opacity: 0.6;
 }
 
-img {
+.content img {
 	height: 100%;
 	left: 0px;
 	top: 0px;
 	position: relative;
 	width: 100%;
 	display:block;
+	
 }
 
 .bookInfo {
@@ -109,133 +122,32 @@ img {
 	font-weight: 300;
 }
 
-.rating {
-	font-weight: 400;
-}
-
 .pagination {
 	justify-content: center;
+	margin-top: 1.5vh;
+	
 }
 
-.sectionTitle h1 {
-	font-size: 25px;
-	margin-top: 2.6vh;
-	color: #112d4e;	
-	border-bottom: 1px solid #112d4e;
-	margin-left: 3.5vh;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	width: 49.3vh;
-}
-
-
-/* END MAIN */
-
-/* NAVBAR */
-
-.nav-left {
-	background-color: #112d4e;
-	opacity: 0.9;
-	background-image: linear-gradient(#112d4e 95%, #f9f7f7);
-	text-transform: uppercase;
-	height: 60px;
-	letter-spacing: 2px;
+.footer {
+	height: 10vh;
+	background-color: #f6f6f6;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size: 2vh;
 	font-weight: 300;
 }
 
-.nav-item {
-	width: 120px;
-	text-align: center;
-	height: 60px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-}
-
-.nav-item:hover {
-	background-color: #dbe2ef;
-	text-align: center;
-}
-
-.nav-item a {
-	color: #f9f7f7;
-	text-decoration: none;
-}
-
-.nav-item:hover a {
-	background-color: #dbe2ef;
-	text-align: center;
-	color: #000000;
-	text-decoration: none;
-}
-
-.nav-itemLogIn {
-	margin: 5px 30px 0px 0px;
-	width: 100px;
-	height: 40px;
-	text-align: center;
-	border: 3px solid #112d4e;
-	color: black;
-	vertical-align: middle;
-	padding: 3px;
-}
-
-.nav-itemLogIn:hover {
+.footer i {
+	font-size: 3vh;
 	color: #112d4e;
-	background-color: #f9f7f7;
-	border: 3px solid #112d4e;
-	text-decoration: none;
-}
-
-.nav-itemRegister {
-	margin: 5px 30px 0px 0px;
-	width: 90px;
-	height: 40px;
-	text-align: center;
-	border: 3px solid #112d4e;
-	color: #ffffff;
-	vertical-align: middle;
-	padding: 3px;
-	background-color: #112d4e;
-}
-
-.nav-itemRegister:hover {
-	color: #202120;
-	text-decoration: none;
-}
-
-/* END NAVBAR */
-
-
-/* FOOTER */
-.footer {
-   position: fixed;
-   bottom: 0;
-   background-color: #112d4e;
-   color: white;
-   display: flex;
-   align-items: center;
-   height: 4vh;
-   justify-content: center;
-   font-weight: 100;
+	margin-right: 5vh;
+	margin-left: 5vh;
 }
 
 .footer i:hover {
 	cursor: pointer;
+	color: green;
 }
-
-.footer a {
-	color: white;
-}
-
-.footer a:hover {
-	font-size: 10px;
-}
-
-/* END FOOTER */
-
-
-
 
 

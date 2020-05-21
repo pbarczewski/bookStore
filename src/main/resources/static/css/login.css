@@ -1,98 +1,55 @@
-.a:hover {
-	text-decoration: none;
+.container-fluid {
+	height: 100vh;
+	font-family: 'Roboto', sans-serif;
+	color: #112d4e;
 }
-.content-right {
+.leftSide {
+	background-color: white;
+	height: 100vh;
 	display: flex;
-	border-left: 10px solid #d62f3d;
-	justify-content: center;
-}
-.content-input {
-	margin-top:50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
-.formError {
-	color: #d62f3d;
-}
-.mainText {
-	margin-top: 20px;
-}
-.nav-left {
-	margin-top: 5px;
-	background-color: #d62f3d;
-}
-.nav-right {
-	background-color: #ffffff;
-}
-.nav-itemLeft {
-	width: 90px;
-	text-align: center;
-}
-.nav-itemLeft {
-	width: 90px;
-	text-align: center;
-}
-.nav-itemCheck {
-	margin: 5px 30px 0px 0px;
-	width: 150px;
-	height:40px;
-	text-align: center;
-	border: 3px solid #d62f3d;
-	color: #d62f3d;
-	vertical-align: middle;
-	padding:3px;
-}
-.nav-itemCheck:hover {
-	color:#ffffff;
-	background-color: #d62f3d;
-	border: 3px solid #ffffff;
-	text-decoration: none;
-}
-.nav-itemLogIn {
-	margin: 8px 30px 0px 0px;
-	width: 90px;
-	height:40px;
-	text-align: center;
-	background-color: #ffffff;
-	color: #202120;
-	vertical-align: middle;
-	padding:3px;
-}
-.nav-itemLogIn:hover {
-	color: #d62f3d;
-	text-decoration: none;
-}
-.nav-itemRegister {
-	margin: 5px 30px 0px 0px;
-	width: 90px;
-	height:40px;
-	text-align: center;
-	border: 3px solid #ffffff;
-	color: #ffffff;
-	vertical-align: middle;
-	padding:3px;
-	background-color: #d62f3d;
-}
-.nav-itemRegister:hover {
-	color: #202120;
-	text-decoration: none;
-}
-.nav-linkRight {
-	color: #ffffff;
-}
-.nav-linkRight:hover {
-	color: #202120;
-	text-decoration: none;
+.rightSide {
+	background-image: url("../images/other/books.jpg");
+	height: 100vh;
 }
 
-.nav-linkLeft {
-	color: #d62f3d;
+.rightSide img {
+	opacity: 0.5;
 }
-.submitButton {
-	color: #ffffff;
-	background-color: #202120;
-	height:50px;
-	width:200px;
+
+
+h1 {
+	font-weight: 300;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-bottom: 2vh;
 }
-.submitButton:hover {
-	color: #d62f3d;
+
+.form {
+	margin-top: -30vh;
 }
+
+.btn-primary {
+	background-color: #112d4e;;
+}
+
+.fa-book-open {
+	font-size: 10vh;
+	margin-bottom: 2vh;
+}
+
+.leftSide p {
+	 font-style: italic;
+	 font-weight: 100;
+	 font-size: 1.5vh;
+}
+
+.inlineFormInputGroupUsername {
+	width: 50px;
+}
+
+

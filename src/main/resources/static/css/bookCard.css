@@ -25,7 +25,7 @@
 	color: #112d4e;
 }
 
-.authorCard {
+.bookCard {
 	background-color: white;
 	height: 73vh;
 	margin: 0;
@@ -33,7 +33,7 @@
 	margin-top: 5vh;
 }
 
-.authorName {
+.bookName {
 	background-color: #112d4e;
 	color: white;
 	height: 15vh;
@@ -44,19 +44,23 @@
 	margin-top: 4vh;
 }
 
-.authorInfo {
+.bookInfo {
 	padding: 0;
 	margin-top: 1vh;
 }
 
-.authorBooks {
-	height: 42vh;
-	background-color: #f6f6f6;
-	text-align: center;
+.bookInfo .link {
+	text-decoration: none;
+	color: #112d4e;
 }
-.authorBooks p {
-	font-size: 3vh;
-	padding-top: 1vh;
+
+.bookInfo .link:hover {
+	opacity: 0.6;
+}
+
+.bookInfo p {
+	height: 32vh;
+	overflow-y:scroll; overflow-x:hidden; 
 	font-weight: 300;
 }
 
@@ -96,6 +100,7 @@ h1  {
 
 h2 {
 	font-weight: 300;
+	display:inline-block;
 }
 
 h3 {
@@ -108,12 +113,6 @@ h4 {
 
 .leftSide  {
 	height: 65vh;	
-}
-
-.authorInfo p {
-	height: 32vh;
-	overflow-y:scroll; overflow-x:hidden; 
-	font-weight: 300;
 }
 
 .content {
@@ -144,10 +143,53 @@ h4 {
 	margin-top: 4vh;
 }
 
-.pagination {
-	justify-content: center;
-	margin-top: 1.5vh;
+ul {
+	padding:0px;
+	text-align: center;
+}
+
+ul li {
+	display: inline-block;
+}
+
+
+input[type="radio"] {
+	display: none;
+}
+
+label {
+	display: inline-block;
+	cursor: pointer;
+	width: 3.5vh;
 	
+}
+ label::before {
+	content: "\f005";
+	font-family: "Font Awesome 5 Free";
+	color:  #112d4e;
+	font-size: 20px;
+	position:relative;
+	display:block;
+}
+
+
+label::after {
+	content: "\f005";
+	font-family: "Font Awesome 5 Free";
+	color: #112d4e;
+	font-weight: 900;
+	font-size: 20px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	opacity: 0;
+	width: 3.5vh;
+} 
+
+label:hover:after,
+label:hover ~ label:after,
+input:checked ~ label:after {
+	opacity: 1;
 }
 
 .footer {

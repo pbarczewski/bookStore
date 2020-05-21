@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title th:inline="text"></title>
+<title th:inline="text">[[${author.name}]]</title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
 	crossorigin="anonymous" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-<link th:href="@{/css/books.css}" rel="stylesheet" />
+<link th:href="@{/css/authorCard.css}" rel="stylesheet" />
 <script src="js/custom1.js"></script>
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 <style>
@@ -27,8 +27,8 @@
 
 				<div class="col-lg-6 navbar">
 					<ul class="nav nav-tabs">
-						<li class="nav-item"><a class="nav-link active"
-							th:href="@{#}"><i class="fas fa-book-open"></i> Books</a></li>
+						<li class="nav-item"><a class="nav-link active" href="#"><i
+								class="fas fa-book-open"></i> Books</a></li>
 						<li class="nav-item"><a class="nav-link"
 							th:href="@{/authors}"><i class="fas fa-user-edit"></i>
 								Authors</a></li>
@@ -53,9 +53,7 @@
 				</div>
 			</div>
 
-			<div class="col-lg-12 logo">
-				<img th:src="@{/images/other/fairy-tale.jpg}" alt="Italian Trulli">
-			</div>
+
 
 		</header>
 
@@ -63,59 +61,65 @@
 
 		<main>
 			<div class="col-lg-12 content">
-				<div class="col-lg-4 title">Books</div>
-				<div class="row">
-					<div class="col-lg-2" th:each="singleBook, iterStat : ${books}">
+				<div class="col-lg-10 authorCard">
 
-						<div class="col-lg-12 bookImg">
-							<a><img th:src="@{'/images/' + ${singleBook.images}}" /></a> <a
-								class="imageLink"
-								th:href="@{/books/{id}/{title} (id=${singleBook.id}, title=${singleBook.title}) }"></a>
+					<div class="row">
+						<div class="col-lg-4 leftSide">
+							<img alt="${author.images}"
+								th:src="@{'/images/authors/' + ${author.images}}" />
 						</div>
-						<article>
-							<div class="col-lg-12 bookInfo">
-								<a class="link"
-									th:href="@{/books/{id}/{title} (id=${singleBook.id}, title=${singleBook.title}) }">
-									<h1>
-										<span th:inline="text"> [[${singleBook.title}]]</span>
-									</h1>
-								</a> <a class="link"
-									th:href="@{/authors/{id}/{name} (id=${singleBook.authors[0].id}, name=${singleBook.authors[0].name}) }">
-									<h2 th:inline="text"
-										th:if="${#arrays.length(singleBook.authors) <= 1}">[[${singleBook.authors[0].name}]]</h2>
-								</a>
-								<h2 th:inline="text"
-									th:if="${#arrays.length(singleBook.authors) >= 2}">Many
-									authors</h2>
-								<p class="rating">
-									<strong> <i class="fas fa-star"></i>
-										[[${singleBook.rating}]]/10
-									</strong> | <i class="fas fa-book-open"></i> Readers:
-									[[${singleBook.votes}]]
-								</p>
+
+						<div class=" col-lg-8 rightSide">
+
+							<div class=" col-lg-12 authorName">
+								<h1 th:inline="text">[[${author.name}]]</h1>
 							</div>
-						</article>
+
+							<div class="col-lg-12 authorInfo">
+								<h2 th:inline="text">Birth date: [[${author.birth_date}]]</h2>
+
+								<h3 th:inline="text">Nationality: [[${author.nationality}]]</h3>
+								</a>
+								<h4 th:inline="text">Books: [[${author.getBooks().size()}]]</h4>
+								<hr>
+								<p th:inline="text">[[${author.description}]]</p>
+							</div>
+
+
+
+						</div>
+
 					</div>
+
 				</div>
 			</div>
 		</main>
 		<div class="col-lg-12 pag">
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link"
-					th:if="${currentPage} > 0"
-					th:href="@{/books/(page=${currentPage -1})}" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li class="page-item"
-					th:each="i : ${#numbers.sequence(0,books.totalPages-1)}"><a
-					class="page-link" th:href="@{/books/(page=${i})}" th:text="${i}"
-					th:classappend="${currentPage}==${i}? 'active' : ''"></a></li>
 
-				<li class="page-item"><a class="page-link"
-					th:if="${currentPage} < ${books.totalPages} -1"
-					th:href="@{/books/(page=${currentPage +1})}" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-				</a></li>
+			</ul>
+		</div>
+
+		<div class="col-lg-12 authorBooks">
+			<p th:inline="text">Books written by [[${author.name}]]</p>
+			<div class="row">
+				<div th:each="book : ${author.books}" class="col-lg-2 singleBook">
+					<div class="col-lg-12 image">
+						<img alt="${book.images}" th:src="@{'/images/' + ${book.images}}" />
+						<a class="imageLink"
+							th:href="@{/books/{id}/{title} (id=${book.id}, title=${book.title}) }"></a>
+					</div>
+					<div class="col-lg-12 bookTitle" th:inline="text">[[${book.title}]]</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+		<div class="col-lg-12 pag">
+			<ul class="pagination">
+
 			</ul>
 		</div>
 
