@@ -38,7 +38,7 @@ The site is still developed. It is an alpha version accordingly some features ar
 - [ ] More content, more books, authors and categories
 - [ ] Page layout improvements
 - [ ] User registration with authorized login and password
-
+ 
 
 
 
