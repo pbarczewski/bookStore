@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepositoryInterface {
 
-    ObjectValidationModel createBook(BookModel bookModel) ;
+    String createBook(BookModel bookModel) throws Exception;
+    BookModel getSingleBook(String uuid);
+
 
 }

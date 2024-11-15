@@ -14,8 +14,7 @@ public class BookModel {
 
     private String externalId;
     private String description;
-    private String insertDate;
-    private String price;
+    private BigDecimal price;
     private String title;
     private String subtitle;
     private String publishedYear;

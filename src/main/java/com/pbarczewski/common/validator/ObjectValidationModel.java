@@ -25,13 +25,12 @@ public class ObjectValidationModel {
             .build();
     }
 
-    public static ObjectValidationModel getResultStatus(ObjectValidationModel objectValidationModel) {
-        if(!objectValidationModel.getMessages().isEmpty()) {
-            objectValidationModel.setResultStatus(ResultStatus.OK);
+    public ObjectValidationModel checkResultStatusAndGetObject() {
+        if(!this.messages.isEmpty()) {
+            this.resultStatus = ResultStatus.VALIDATION_ERROR;
         } else {
-            objectValidationModel.setResultStatus(ResultStatus.VALIDATION_ERROR);
+            this.resultStatus = ResultStatus.OK;
         }
-        return objectValidationModel;
+        return this;
     }
-
 }

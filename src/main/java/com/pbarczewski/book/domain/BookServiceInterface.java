@@ -8,5 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BookServiceInterface {
     ObjectValidationModel createBook(BookModel bookModel);
+    BookModel getSingleBook(String uuid);
 
 }

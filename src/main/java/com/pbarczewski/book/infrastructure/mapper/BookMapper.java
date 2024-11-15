@@ -13,10 +13,21 @@ public class BookMapper {
             .externalId(externalId)
             .description(bookModel.getDescription())
             .insertDate(LocalDateTime.now())
-            .price(new BigDecimal(bookModel.getPrice()))
+            .price(bookModel.getPrice())
             .title(bookModel.getTitle())
             .subtitle(bookModel.getSubtitle())
             .publishedYear(bookModel.getPublishedYear())
+            .build();
+    }
+
+    public static BookModel convertToBookModel(Book book) {
+        return BookModel.builder()
+            .externalId(book.getExternalId())
+            .description(book.getDescription())
+            .price(book.getPrice())
+            .title(book.getTitle())
+            .subtitle(book.getSubtitle())
+            .publishedYear(book.getPublishedYear())
             .build();
     }
 }
